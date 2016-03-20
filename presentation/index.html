@@ -1,0 +1,2048 @@
+<html style="height: 100%;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Inside Videogames</title>
+
+    <meta name="description" content="Presentació Treball de Recerca">
+    <meta name="author" content="Jaume Ramos Prades">
+
+    <link href="./presentacio_files/default-reset.css" rel="stylesheet" >
+    <link href="./presentacio_files/main.css" rel="stylesheet" type="text/css">
+    <link href="./presentacio_files/default.css" rel="stylesheet"  id="theme">
+    <link href="./presentacio_files/web-fonts.css" rel="stylesheet" type="text/css">
+    <link href="./presentacio_files/backgroundClasses.css" rel="stylesheet" type="text/css">
+    <link href="./presentacio_files/surfaceClasses.css" rel="stylesheet" type="text/css">
+
+
+    <style>
+        .componentContainer {
+            position: absolute;
+            line-height: normal;
+        }        
+        .transformContainer {
+            -webkit-transform-origin: 0 0;
+            -moz-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }        
+        .bg {
+            width: 100%;
+            height: 100%;
+        }
+        .reveal.themedArea {
+            display: block;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <script type="text/javascript" src="./presentacio_files/dataset-shim.js"></script>
+    <script type="text/javascript" src="./presentacio_files/impress.js"></script>
+
+    <script src="./presentacio_files/onready.js"></script>
+    <script src="./presentacio_files/loadPresentation.js"></script>
+    
+    <script>
+        ready(function () {
+            if (document.getElementById('launched-placeholder'))
+                loadPresentation();
+
+            if (!window.presStarted) {
+                startPres(document, window);
+                impress().init();
+            }
+
+            if ("ontouchstart" in document.documentElement) {
+                document.querySelector(".hint").innerHTML =
+                    "<p>Tap on the left or right to navigate</p>";
+            }
+        });
+    </script>
+    
+    <link rel="stylesheet" href="./styles/arta.css">
+    <script src="./highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+</head>
+
+<body class="impress-supported impress-enabled" style="height: 100%; overflow: hidden;">
+    <style type="text/css">
+        .strut-surface .titolSombra {
+            color: #6f7072;
+            text-shadow: 0 0 3px green, 0 0 5px lightgreen;
+            text-shadow: 3px 3px 2px rgba(0, 99, 99, 0.5), 0 0 20px rgba(255, 252, 242, 1), 0 0 5px rgba( 112, 143, 126, 1);
+            text-shadow: 3px 3px 2px rgba(255, 252, 242, 1), 0 0 15px rgba(255, 252, 242, 1), 0 0 5px rgba(240, 233, 209, 1);
+        }
+        
+        .strut-surface .titolSombraGeneral {
+            text-shadow: 1px 1px 2px green, 0 0 25px green, 0 0 5px green;
+        }
+        
+        .strut-surface .quadre {
+            border-radius: 25px;
+            background: rgba(0, 99, 99, 0.5);
+            background: rgba(246, 254, 250, 1);
+            background: rgba(182, 202, 191, 1);
+            background: rgba( 112, 143, 126, 1);
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.17);
+        }
+        
+        .strut-surface .codi {}
+    </style>
+    <style>
+        .bg-custom-b7bdbd {
+            background: #b7bdbd;
+        }
+    </style>
+    <style>
+
+    </style>
+    <!-- This is a work around / hack to get the user's browser to download the fonts 
+ if they decide to save the presentation. -->
+    <div style="visibility: hidden; width: 0px; height: 0px">
+        <img src="./presentacio_files/Lato-Bold.woff">
+        <img src="./presentacio_files/HammersmithOne.woff">
+        <img src="./presentacio_files/Droid-Sans-Mono.woff">
+        <img src="./presentacio_files/Gorditas-Regular.woff">
+        <img src="./presentacio_files/FredokaOne-Regular.woff">
+        <img src="./presentacio_files/Ubuntu.woff">
+        <img src="./presentacio_files/Ubuntu-Bold.woff">
+        <img src="./presentacio_files/PressStart2P-Regular.woff">
+        <img src="./presentacio_files/Lato-BoldItalic.woff">
+        <img src="./presentacio_files/AbrilFatface-Regular.woff">
+        <img src="./presentacio_files/Lato-Regular.woff">
+    </div>
+
+    <div class="fallback-message">
+        <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+    </div>
+
+    <div class="bg bg-custom-b7bdbd strut-surface">
+        <div class="bg innerBg strut-slide-0 bg-custom-b7bdbd">
+            <div id="impress" style="position: absolute; transform-origin: left top 0px; transition: all 0ms ease-in-out 0ms; transform-style: preserve-3d; top: 50%; left: 50%; transform: perspective(3000px) scale(0.333333);">
+                <div style="position: absolute; transform-origin: left top 0px; transition: all 0ms ease-in-out 0ms; transform-style: preserve-3d; transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg) translate3d(-1706.67px, -1382.4px, 0px);">
+
+
+                    <div class="step active present" data-state="strut-slide-0 bg-custom-b7bdbd " data-x="1706.6666666666667" data-y="1382.4" data-scale="3" id="step-1" style="position: absolute; transform: translate(-50%, -50%) translate3d(1706.67px, 1382.4px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-0" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-1 bg-custom-b7bdbd " data-x="1665.7066666666667" data-y="4162.56" data-scale="3" id="step-2" style="position: absolute; transform: translate(-50%, -50%) translate3d(1665.71px, 4162.56px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-1" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 362.85px; left: 170.85px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="PressStart2P, cursive">INSIDE &nbsp; VIDEOGAMES</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 321px; left: 382px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 109px; height: 109px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.73, 0.73);-moz-transform: scale(0.73, 0.73);transform: scale(0.73, 0.73)">
+                                    <img src="./presentacio_files/pacman___inky___blue_ghost_by_charlychive-d8sqreq.gif">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 467px; left: 689px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 27px;" class="antialias">
+                                        Jaume Ramos
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 423px; left: 637px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 27px;" class="antialias">
+                                        Treball de recerca
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-2 bg-custom-b7bdbd " data-x="6321.493333333333" data-y="2749.44" data-scale="3" id="step-3" style="position: absolute; transform: translate(-50%, -50%) translate3d(6321.49px, 2749.44px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-2" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 474px; left: 582px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font color="#333333" face="PressStart2P, cursive">Objectius</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 123px; left: 45px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font color="#333333" face="PressStart2P, cursive">Per què aquest <br>treball?</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 257px; left: 60px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="font-family: Ubuntu; line-height: normal;">Interés per la informàtica i els videojocs</span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 327px; left: 60px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="font-family: Ubuntu; line-height: normal;">Introducció en l'àmbit on vull seguir els meus estudis</span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 542px; left: 580px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <div>
+                                            <ul>
+                                                <li><font face="Ubuntu"><span style="line-height: normal;">Aprendre a programar</span></font></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 597px; left: 580px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <div>
+                                            <ul>
+                                                <li><font face="Ubuntu"><span style="line-height: normal;">Programar un videojoc senzill</span></font></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-3 bg-custom-b7bdbd " data-x="6294.1866666666665" data-y="-1044.48" data-rotate-y="-89.95437383553926" data-scale="3" id="step-4" style="position: absolute; transform: translate(-50%, -50%) translate3d(6294.19px, -1044.48px, 0px) rotateX(0deg) rotateY(-89.9544deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-3" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 10px; left: 422px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="PressStart2P, cursive">Índex</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 120px; left: 30px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 27px;" class="antialias">
+                                        <font face="PressStart2P">Els videojocs</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 220px; left: 90px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 27px;" class="antialias">
+                                        <font face="PressStart2P">La programació</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 320px; left: 150px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 27px;" class="antialias">
+                                        <font face="PressStart2P">Part pràctica</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 420px; left: 210px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 27px;" class="antialias">
+                                        <font face="PressStart2P">Conclusions</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-4 bg-custom-b7bdbd " data-x="10267.306666666667" data-y="2780.16" data-scale="3" id="step-5" style="position: absolute; transform: translate(-50%, -50%) translate3d(10267.3px, 2780.16px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-4" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 362px; left: 278px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="PressStart2P, cursive">ELS VIDEOJOCS</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 268px; left: 727px; -webkit-transform: rotate(0.59rad)  ; -moz-transform: rotate(0.59rad)  ; transform: rotate(0.59rad)  ; width: 99px; height: 99px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.19, 0.19);-moz-transform: scale(0.19, 0.19);transform: scale(0.19, 0.19)">
+                                    <img src="./presentacio_files/photo.jpg">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 250px; left: 167px; -webkit-transform: rotate(-0.7rad)  ; -moz-transform: rotate(-0.7rad)  ; transform: rotate(-0.7rad)  ; width: 141px; height: 141px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.28, 0.28);-moz-transform: scale(0.28, 0.28);transform: scale(0.28, 0.28)">
+                                    <img src="./presentacio_files/Invader_1-512.png">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-5 bg-custom-b7bdbd " data-x="10758.826666666666" data-y="3624.96" data-rotate-z="89.95437383553926" data-scale="3" id="step-6" style="position: absolute; transform: translate(-50%, -50%) translate3d(10758.8px, 3624.96px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(89.9544deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-5" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 324px; left: 326px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <div><font face="Ubuntu, sans-serif">Són un mitjà d'entreteniment que&nbsp;<br></font></div>
+                                        <div><font face="Ubuntu, sans-serif">permet la interacció. Busquen&nbsp;</font></div>
+                                        <div><font face="Ubuntu, sans-serif">simular diferents experiències.</font></div>
+                                        <div><font face="Ubuntu, sans-serif"><br></font></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-6 bg-custom-b7bdbd " data-x="9953.28" data-y="3271.68" data-rotate-z="89.95437383553926" data-scale="3" id="step-7" style="position: absolute; transform: translate(-50%, -50%) translate3d(9953.28px, 3271.68px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(89.9544deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-6" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 175px; left: 431px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu, sans-serif"><b>Jugabilitat<br></b>&nbsp; &nbsp; Individual<br>&nbsp; &nbsp; Multijugador<br><br><b>Gènere</b><br>&nbsp; &nbsp; Acció<br>&nbsp; &nbsp; Aventura<br>&nbsp; &nbsp; Conducció<br>&nbsp; &nbsp; Esports<br>&nbsp; &nbsp; Estratègia<br>&nbsp; &nbsp; Rol<br>&nbsp; &nbsp; MMO<br>&nbsp; &nbsp; Simulació<br></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-7 bg-custom-b7bdbd " data-x="10185.386666666667" data-y="1781.76" data-rotate-z="269.86312150661774" data-scale="3" id="step-8" style="position: absolute; transform: translate(-50%, -50%) translate3d(10185.4px, 1781.76px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(269.863deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-7" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 106px; left: 340px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu, sans-serif"><b>Producció de videojocs</b><br><ul><li><span style="line-height: normal;"><i>Rols</i></span></li></ul></font><font face="Ubuntu, sans-serif"><i>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</i>Productors<br>&nbsp; &nbsp; &nbsp; &nbsp; Dissenyadors<br>&nbsp; &nbsp; &nbsp; &nbsp; Artistes<br>&nbsp; &nbsp; &nbsp; &nbsp; Programadors<br>&nbsp; &nbsp; &nbsp; &nbsp; Tècnics de so i músics<br>&nbsp; &nbsp; &nbsp; &nbsp; Testers<br>&nbsp; &nbsp; &nbsp; &nbsp; Responsables de marketing<br><ul><li><span style="line-height: normal;"><i>Fases</i></span><br></li></ul>&nbsp; &nbsp; &nbsp; &nbsp; Planificació<br>&nbsp; &nbsp; &nbsp; &nbsp; Producció<br></font><span style="font-family: Ubuntu, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -- Programació</span><font face="Ubuntu, sans-serif"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -- Disseny<br>&nbsp; &nbsp; &nbsp; &nbsp; Proves<br>&nbsp; &nbsp; &nbsp; &nbsp; Manteniment<br>&nbsp; &nbsp; &nbsp; &nbsp; Extensió<br>&nbsp; &nbsp; &nbsp; &nbsp;Marketing</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-8 bg-custom-b7bdbd " data-x="14090.24" data-y="2780.16" data-scale="3" id="step-9" style="position: absolute; transform: translate(-50%, -50%) translate3d(14090.2px, 2780.16px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-8" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 362px; left: 260px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="PressStart2P, cursive">LA PROGRAMACIÓ</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-9 bg-custom-b7bdbd " data-x="13981.013333333334" data-y="3624.96" data-rotate-z="89.95437383553926" data-scale="3" id="step-10" style="position: absolute; transform: translate(-50%, -50%) translate3d(13981px, 3624.96px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(89.9544deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-9" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 141px; left: 428px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 175px; height: 119.19px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.69, 0.69);-moz-transform: scale(0.69, 0.69);transform: scale(0.69, 0.69)">
+                                    <img src="./presentacio_files/JMSzaBs.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 212px; left: 615px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu">Codi font</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 79px; left: 352px; -webkit-transform:  skewX(0.05rad) ; -moz-transform:  skewX(0.05rad) ; transform:  skewX(0.05rad) ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu, sans-serif">Procés per solucionar problemes <br>mitjançant ordinadors.</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-10 bg-custom-b7bdbd " data-x="14554.453333333333" data-y="4700.16" data-rotate-y="89.95437383553926" data-rotate-z="89.95437383553926" data-scale="3" id="step-11" style="position: absolute; transform: translate(-50%, -50%) translate3d(14554.5px, 4700.16px, 0px) rotateX(0deg) rotateY(89.9544deg) rotateZ(89.9544deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-10" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 310px; left: 297px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu, sans-serif">Conjunt d'instruccions i fitxers escrits
+<br>&nbsp;amb algun llenguatge de programació.
+<br>Per executar-lo s'ha de convertir a codi 
+<br>binari. 
+<br></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-11 bg-custom-b7bdbd " data-x="10704.213333333333" data-y="6973.44" data-rotate-y="89.95437383553926" data-rotate-z="89.95437383553926" data-scale="3" id="step-12" style="position: absolute; transform: translate(-50%, -50%) translate3d(10704.2px, 6973.44px, 0px) rotateX(0deg) rotateY(89.9544deg) rotateZ(89.9544deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-11" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 357px; left: 263px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 46px;" class="antialias">
+                                        <font face="Ubuntu">Compilador o intèrpret?</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-12 bg-custom-b7bdbd " data-x="13981.013333333334" data-y="3624.96" data-rotate-z="89.95437383553926" data-scale="3" id="step-13" style="position: absolute; transform: translate(-50%, -50%) translate3d(13981px, 3624.96px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(89.9544deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-12" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 325px; left: 352px; -webkit-transform:  skewX(0.05rad) ; -moz-transform:  skewX(0.05rad) ; transform:  skewX(0.05rad) ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu, sans-serif"><b>Programa</b><br>Seqüència d'instruccions que <br>s'executen per a dur a terme <br>tasques determinades.<br><b><br>Aplicació<br></b>Solució informàtica que <br>permet automatitzar certes <br>tasques complicades.<br></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 454px; left: 606px; -webkit-transform: rotate(1.56rad)  ; -moz-transform: rotate(1.56rad)  ; transform: rotate(1.56rad)  ; width: 208px; height: 52.1px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.39, 0.39);-moz-transform: scale(0.39, 0.39);transform: scale(0.39, 0.39)">
+                                    <img src="./presentacio_files/4u1KO9K.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 467px; left: 727px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu">SOFTWARE</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-13 bg-custom-b7bdbd " data-x="14062.933333333332" data-y="7818.24" data-rotate-y="-89.95437383553926" data-rotate-z="89.95437383553926" data-scale="3" id="step-14" style="position: absolute; transform: translate(-50%, -50%) translate3d(14062.9px, 7818.24px, 0px) rotateX(0deg) rotateY(-89.9544deg) rotateZ(89.9544deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-13" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 309px; left: 261px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 52px;" class="antialias">
+                                        <font face="Ubuntu">Software de sistema<br></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 274px; left: 802px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 101px; height: 104.43px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.1, 0.1);-moz-transform: scale(0.1, 0.1);transform: scale(0.1, 0.1)">
+                                    <img src="./presentacio_files/">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 545px; left: 225px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 122.57px; height: 91.93px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.61, 0.61);-moz-transform: scale(0.61, 0.61);transform: scale(0.61, 0.61)">
+                                    <img src="./presentacio_files/android.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 55px; left: 347px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 114px; height: 114px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.22, 0.22);-moz-transform: scale(0.22, 0.22);transform: scale(0.22, 0.22)">
+                                    <img src="./presentacio_files/Tux.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 470px; left: 643px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 147px; height: 147px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.37, 0.37);-moz-transform: scale(0.37, 0.37);transform: scale(0.37, 0.37)">
+                                    <img src="./presentacio_files/Windows-8-Logo.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 263px; left: 78px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 108px; height: 108px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.21, 0.21);-moz-transform: scale(0.21, 0.21);transform: scale(0.21, 0.21)">
+                                    <img src="./presentacio_files/finder-icon.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 114px; left: 749px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 76px; height: 94.41px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.15, 0.15);-moz-transform: scale(0.15, 0.15);transform: scale(0.15, 0.15)">
+                                    <img src="./presentacio_files/debian_4.png">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-14 bg-custom-b7bdbd " data-x="17380.693333333333" data-y="10644.48" data-rotate-y="-89.95437383553926" data-rotate-z="89.95437383553926" data-scale="3" id="step-15" style="position: absolute; transform: translate(-50%, -50%) translate3d(17380.7px, 10644.5px, 0px) rotateX(0deg) rotateY(-89.9544deg) rotateZ(89.9544deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-14" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 161px; left: 752px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 89px; height: 89px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.17, 0.17);-moz-transform: scale(0.17, 0.17);transform: scale(0.17, 0.17)">
+                                    <img src="./presentacio_files/Google_Chrome_icon_(2011).png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 489px; left: 656px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 88px; height: 88px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.34, 0.34);-moz-transform: scale(0.34, 0.34);transform: scale(0.34, 0.34)">
+                                    <img src="./presentacio_files/Microsoft Office - Word.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 509px; left: 288px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 106px; height: 106px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.11, 0.11);-moz-transform: scale(0.11, 0.11);transform: scale(0.11, 0.11)">
+                                    <img src="./presentacio_files/1000px-The_GIMP_icon_-_gnome.svg.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 110px; left: 226px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 101px; height: 101px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.28, 0.28);-moz-transform: scale(0.28, 0.28);transform: scale(0.28, 0.28)">
+                                    <img src="./presentacio_files/spotify.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 313px; left: 110px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 96px; height: 96px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.19, 0.19);-moz-transform: scale(0.19, 0.19);transform: scale(0.19, 0.19)">
+                                    <img src="./presentacio_files/firefox-512.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 325px; left: 286px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 50px;" class="antialias">
+                                        <font face="Ubuntu">Software d'aplicació</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 95px; left: 481px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 90px; height: 90px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.35, 0.35);-moz-transform: scale(0.35, 0.35);transform: scale(0.35, 0.35)">
+                                    <img src="./presentacio_files/OOo_Application_256x256.png">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-15 bg-custom-b7bdbd " data-x="13503.146666666667" data-y="1935.36" data-rotate-z="269.86312150661774" data-scale="3" id="step-16" style="position: absolute; transform: translate(-50%, -50%) translate3d(13503.1px, 1935.36px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(269.863deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-15" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 256px; left: 341.33px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 339px; left: 338px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu"><b>Llenguatge de programació</b><br>Facilita als programadors donar <br>instruccions als ordinadors</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-16 bg-custom-b7bdbd " data-x="14376.96" data-y="1889.28" data-rotate-z="269.86312150661774" data-scale="3" id="step-17" style="position: absolute; transform: translate(-50%, -50%) translate3d(14377px, 1889.28px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(269.863deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-16" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 279px; left: 318px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu"><b>Tipus de llenguatges</b><br>&nbsp; &nbsp; Llenguatges d'alt nivell<br>&nbsp; &nbsp; Llenguatges de baix nivell<br><br><b>Paradigmes de programació
+</b><br>&nbsp; &nbsp; Programació imperativa
+<br>&nbsp; &nbsp; Programació orientada a objectes<br></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 435px; left: 366px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-17 bg-custom-b7bdbd " data-x="13803.52" data-y="-107.52" data-rotate-y="89.95437383553926" data-rotate-z="269.86312150661774" data-scale="3" id="step-18" style="position: absolute; transform: translate(-50%, -50%) translate3d(13803.5px, -107.52px, 0px) rotateX(0deg) rotateY(89.9544deg) rotateZ(269.863deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-17" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 31px; left: 38px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 313px; height: 166.39px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.43, 0.43);-moz-transform: scale(0.43, 0.43);transform: scale(0.43, 0.43)">
+                                    <img src="./presentacio_files/Python-3-3-2-Released-with-Multiple-Crash-Fixes-2.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 41px; left: 654px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 189px; height: 189px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.63, 0.63);-moz-transform: scale(0.63, 0.63);transform: scale(0.63, 0.63)">
+                                    <img src="./presentacio_files/javascript.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 202px; left: 48px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 30px;" class="antialias">
+                                        <ul>
+                                            <li>Simple i fàcil</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 302px; left: 63px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 30px;" class="antialias">
+                                        <ul>
+                                            <li><span style="line-height: normal;"><font face="Ubuntu, sans-serif">Lliure i de codi obert</font></span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 402px; left: 78px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 30px;" class="antialias">
+                                        <ul>
+                                            <li><span style="line-height: normal;"><font face="Ubuntu, sans-serif">Portable</font></span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 502px; left: 93px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 30px;" class="antialias">
+                                        <ul>
+                                            <li><span style="line-height: normal;"><font face="Ubuntu, sans-serif">Multiparadigma</font></span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 602px; left: 113px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 30px;" class="antialias">
+                                        <ul>
+                                            <li><span style="line-height: normal;"><font face="Ubuntu, sans-serif">Extensible</font></span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 200px; left: 453px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 30px;" class="antialias">
+                                        <ul>
+                                            <li>Asynchronus JavaScript and XML (AJAX)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 302px; left: 487px; -webkit-transform:  skewX(0.05rad) ; -moz-transform:  skewX(0.05rad) ; transform:  skewX(0.05rad) ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 30px;" class="antialias">
+                                        <ul>
+                                            <li><span style="line-height: normal;"><font face="Ubuntu, sans-serif">Document Object Model (DOM)</font></span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 402px; left: 541px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 30px;" class="antialias">
+                                        <ul>
+                                            <li><span style="line-height: normal;"><font face="Ubuntu, sans-serif">Lliure i de codi obert</font></span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-18 bg-custom-b7bdbd " data-x="20138.666666666668" data-y="2795.52" data-scale="3" id="step-19" style="position: absolute; transform: translate(-50%, -50%) translate3d(20138.7px, 2795.52px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-18" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 362px; left: 278px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="PressStart2P, cursive">PART PRÀCTICA</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 438px; left: 67px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="PressStart2P">Programació d'un videojoc</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-19 bg-custom-b7bdbd " data-x="25176.746666666666" data-y="2718.72" data-rotate-y="-89.95437383553926" data-scale="3" id="step-20" style="position: absolute; transform: translate(-50%, -50%) translate3d(25176.7px, 2718.72px, 0px) rotateX(0deg) rotateY(-89.9544deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-19" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 19px; left: 318px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu, sans-serif"><b>Esquema d'un videojoc</b></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 316px; left: 513px; -webkit-transform: rotate(-0.62rad)  ; -moz-transform: rotate(-0.62rad)  ; transform: rotate(-0.62rad)  ; width: 166px; height: 148.61px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.19, 0.19);-moz-transform: scale(0.19, 0.19);transform: scale(0.19, 0.19)">
+                                    <img src="./presentacio_files/8cGy4KLca.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 116px; left: 30px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="color: rgb(22, 22, 21); font-family: Ubuntu; line-height: normal;">Carregar els elements gràfics</span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 226px; left: 90px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="color: rgb(22, 22, 21); font-family: Ubuntu; line-height: normal;">Inicialitzar el joc</span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 336px; left: 150.85px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="color: rgb(22, 22, 21); font-family: Ubuntu; line-height: normal;">Definir funcions</span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 446px; left: 207px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="color: rgb(22, 22, 21); font-family: Ubuntu; line-height: normal;">Capturar entrades de l'usuari (callbacks)</span>
+                                                <br>
+                                            </li>
+                                            <li><span style="color: rgb(22, 22, 21); font-family: Ubuntu; line-height: normal;">Actualitzar el joc segons les entrades de l'usuari</span></li>
+                                            <li><span style="color: rgb(22, 22, 21); font-family: Ubuntu; line-height: normal;">Actualitzar el joc segons les normes</span></li>
+                                            <li><span style="color: rgb(22, 22, 21); font-family: Ubuntu; line-height: normal;">Mostrar i actualitzar els elements gràfics al canvas</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 384px; left: 274px; -webkit-transform: rotate(0.95rad)  ; -moz-transform: rotate(0.95rad)  ; transform: rotate(0.95rad)  ; width: 61px; height: 41.49px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.11, 0.11);-moz-transform: scale(0.11, 0.11);transform: scale(0.11, 0.11)">
+                                    <img src="./presentacio_files/blue-arrow.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 279px; left: 186px; -webkit-transform: rotate(0.95rad)  ; -moz-transform: rotate(0.95rad)  ; transform: rotate(0.95rad)  ; width: 61px; height: 41.49px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.11, 0.11);-moz-transform: scale(0.11, 0.11);transform: scale(0.11, 0.11)">
+                                    <img src="./presentacio_files/blue-arrow.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 166px; left: 90px; -webkit-transform: rotate(0.95rad)  ; -moz-transform: rotate(0.95rad)  ; transform: rotate(0.95rad)  ; width: 61px; height: 41.49px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.11, 0.11);-moz-transform: scale(0.11, 0.11);transform: scale(0.11, 0.11)">
+                                    <img src="./presentacio_files/blue-arrow.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 541px; left: 510px; -webkit-transform: rotate(-3.86rad)  ; -moz-transform: rotate(-3.86rad)  ; transform: rotate(-3.86rad)  ; width: 166px; height: 148.61px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.19, 0.19);-moz-transform: scale(0.19, 0.19);transform: scale(0.19, 0.19)">
+                                    <img src="./presentacio_files/8cGy4KLca.png">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-20 bg-custom-b7bdbd " data-x="25217.706666666665" data-y="5314.56" data-scale="3" id="step-21" style="position: absolute; transform: translate(-50%, -50%) translate3d(25217.7px, 5314.56px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-20" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 376px; left: 171px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="PressStart2P" color="#000000">ASTEROIDS</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 295px; left: 543px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="PressStart2P" color="#000000">PONG</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: -5px; left: -4px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 528px; height: 356.27px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.85, 0.85);-moz-transform: scale(0.85, 0.85);transform: scale(0.85, 0.85)">
+                                    <img src="./presentacio_files/plHrTzm.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 362px; left: 501px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 519px; height: 392.55px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.63, 0.63);-moz-transform: scale(0.63, 0.63);transform: scale(0.63, 0.63)">
+                                    <img src="./presentacio_files/B4ttGbd.png">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-21 bg-custom-b7bdbd " data-x="25272.32" data-y="8048.64" data-scale="3" id="step-22" style="position: absolute; transform: translate(-50%, -50%) translate3d(25272.3px, 8048.64px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-21" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 362px; left: 134px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="PressStart2P, cursive">ESTRUCTURA DEL "PONG"</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-22 bg-custom-b7bdbd " data-x="25217.706666666665" data-y="10951.68" data-scale="3" id="step-23" style="position: absolute; transform: translate(-50%, -50%) translate3d(25217.7px, 10951.7px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-22" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 10px; left: 282px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Importar i definir variables</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 108px; left: 205px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="python"># importa les llibreries necesaries de Python necessàries pel joc
+import pygame
+from pygame.locals import *
+import time
+import math
+import random
+
+# defineix les constants
+AMPLADA = 600
+ALTURA = 400
+DRETA = 1
+ESQUERRA = 2
+PILOTA_RADI = 20
+PALA_AMPLADA = 8
+PALA_ALTURA = 80
+MEITAT_PALA_AMPLADA = PALA_AMPLADA / 2
+MEITAT_PALA_ALTURA = PALA_ALTURA / 2
+
+# defineix les variables globals
+posicio_pilota = [AMPLADA/ 2, ALTURA / 2]
+velocitat_pilota = [1.0,0.0]
+posicio_pala1 = []
+velocitat_pala1 = 0.0
+posicio_pala2 = []
+velocitat_pala2 = 0.0
+punts1 = 0
+punts2 = 0
+verd = pygame.Color(0, 255, 0)
+groc = pygame.Color(255, 255, 0)
+blanc = pygame.Color(255, 255, 255)
+negre = pygame.Color(0, 0, 0)</code></pre></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-23 bg-custom-b7bdbd " data-x="25245.013333333332" data-y="13808.64" data-scale="3" id="step-24" style="position: absolute; transform: translate(-50%, -50%) translate3d(25245px, 13808.6px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-23" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 10px; left: 371px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Inicialitzar el joc</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 157px; left: 205px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="python"># dibuixa al marc tots els objectes del videojoc
+def dibuixar(canvas):
+&nbsp; &nbsp; global punts1, punts2, posicio_pala1, posicio_pala2, ball_pos,<br>&nbsp; &nbsp; velocitat_pilota, velocitat_pala1, velocitat_pala2&nbsp;<br><br># Neteja el canvas omplint-lo de color negre
+&nbsp; &nbsp; canvas.fill(negre)
+
+&nbsp; &nbsp; # dibuixa la línia del centre i les línies laterals
+&nbsp; &nbsp; pygame.draw.line(canvas, blanc, [AMPLADA / 2, 0],<br>&nbsp; &nbsp; AMPLADA / 2, ALTURA], 1,)
+&nbsp; &nbsp; pygame.draw.line(canvas, blanc, [PALA_AMPLADA, 0],<br>&nbsp; &nbsp; PALA_AMPLADA, ALTURA], 1,)
+&nbsp; &nbsp; pygame.draw.line(canvas, blanc, [AMPLADA - PALA_AMPLADA, 0],<br>&nbsp; &nbsp; [AMPLADA - PALA_AMPLADA, ALTURA], 1,)
+
+&nbsp; &nbsp; # dibuixa els marcadors
+&nbsp; &nbsp; text_draw = fontJoc.render(str(punts1), True, verd)
+&nbsp; &nbsp; canvas.blit(text_draw, (450, 150))
+&nbsp; &nbsp; text_draw = fontJoc.render(str(punts2), True, verd)
+&nbsp; &nbsp; canvas.blit(text_draw, (150, 150))</code></pre></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-24 bg-custom-b7bdbd " data-x="25299.626666666667" data-y="16727.04" data-scale="3" id="step-25" style="position: absolute; transform: translate(-50%, -50%) translate3d(25299.6px, 16727px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-24" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 10px; left: 375px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Definir funcions</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 194px; left: 366px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="python">#Esquema de les funcions del videojoc. El contingut de les funcions
+#està amagat dintre del símbol &gt;.
+
+#Crear una nova partida i col·locar tots els objectes al seu lloc
+#inicial, reiniciar els punts...
+&gt; def nova_partida():
+
+#Dibuixar al marc tots els objectes del videojoc
+&gt; def dibuixar(canvas):
+
+#Crear una pilota amb la direcció indicada al centre de la pantalla
+&gt; def crear_pilota(direcció):
+
+#Callbacks per als esdeveniments<br>#Es prem una tecla: Escull una acció segons la tecla
+&gt; def tecla_premuda(tecla):
+
+#Es deixa de prémer una tecla: atura les pales
+&gt; def tecla_deixada(tecla):</code></pre></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 309px; left: 67px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="font-family: &#39;Droid Sans Mono&#39;; line-height: normal;">nova_partida</span>
+                                                <br>
+                                            </li>
+                                            <li><span style="font-family: &#39;Droid Sans Mono&#39;; line-height: normal;">dibuixar</span></li>
+                                            <li><span style="font-family: &#39;Droid Sans Mono&#39;; line-height: normal;">crear_pilota</span></li>
+                                            <li><font face="Droid Sans Mono"><span style="line-height: normal;">tecla_premuda</span></font></li>
+                                            <li><font face="Droid Sans Mono"><span style="line-height: normal;">tecla_deixada</span></font></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-25 bg-custom-b7bdbd " data-x="25285.97333333333" data-y="19799.04" data-scale="3" id="step-26" style="position: absolute; transform: translate(-50%, -50%) translate3d(25286px, 19799px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-25" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 10px; left: 385px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Bucle principal</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 110px; left: 355px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="python"># Crea el marc del joc i inicialitzar la llibreria
+canvas = pygame.display.set_mode((AMPLADA, ALTURA))
+pygame.display.set_caption("Pong")
+pygame.init()
+
+# Inicia el temporitzador per gestionar els FPS del joc
+temporitzador = pygame.time.Clock()
+
+# Inicia la partida i el dibuixa el canvas
+nova_partida()
+dibuixar(canvas)
+pygame.display.update()
+
+# Bucle infinit pel joc fins que es tanca la finestra o es prem escape
+jugant = True
+while jugant:
+&nbsp; &nbsp; for event in pygame.event.get():
+&nbsp; &nbsp; &nbsp; &nbsp; if event.type == pygame.QUIT: # Tancar la finestra
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jugant = False
+&nbsp; &nbsp; &nbsp; &nbsp; elif event.type == pygame.KEYDOWN:
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tecla_premuda(event.key)
+&nbsp; &nbsp; &nbsp; &nbsp; elif event.type == pygame.KEYUP:
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tecla_deixada(event.key)
+
+&nbsp; &nbsp; dibuixar(canvas)
+&nbsp; &nbsp; pygame.display.update()
+
+&nbsp; &nbsp; # Temporitzador: Fa que el joc vagi a 60 FPS
+&nbsp; &nbsp; temporitzador.tick(60)
+                                        </code></pre></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 336px; left: 26px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 22px;" class="antialias">
+                                        <ul>
+                                            <li><font face="Droid Sans Mono, monospace"><span style="line-height: normal;">Limitar FPS a 60</span><br></font></li>
+                                            <li><span style="line-height: normal;"><font face="Droid Sans Mono, monospace">Actualitzar </font></span><span style="font-family: &#39;Droid Sans Mono&#39;, monospace; line-height: normal;">elements</span></li>
+                                        </ul>
+                                        <div>
+                                            <ul>
+                                                <li><font face="Droid Sans Mono, monospace"><span style="line-height: normal;">Revisar esdeveni</span><span style="line-height: normal;">ments</span><span style="line-height: normal;">&nbsp;</span></font></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-26 bg-custom-b7bdbd " data-x="20930.56" data-y="8232.96" data-scale="3" id="step-27" style="position: absolute; transform: translate(-50%, -50%) translate3d(20930.6px, 8232.96px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-26" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 362px; left: 44px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="PressStart2P, cursive">ESTRUCTURA DEL "ASTEROIDS"</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-27 bg-custom-b7bdbd " data-x="20998.826666666668" data-y="11059.2" data-scale="3" id="step-28" style="position: absolute; transform: translate(-50%, -50%) translate3d(20998.8px, 11059.2px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-27" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 10px; left: 282px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Importar i definir variables</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 213px; left: 345px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="python">
+# Llibreries necessàries
+import pygame
+from pygame.locals import *
+import time
+import os
+import math
+import random
+                                            
+# Variables Globals
+amplada = 800
+altura = 600
+punts = 0
+vides = 3
+time = 0
+jugant = False
+blanc = pygame.Color(255, 255, 255)
+                                        </code></pre></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 166px; left: 185px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-28 bg-custom-b7bdbd " data-x="21067.093333333334" data-y="14039.04" data-scale="3" id="step-29" style="position: absolute; transform: translate(-50%, -50%) translate3d(21067.1px, 14039px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-28" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 10px; left: 299px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Definir funcions auxiliars</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 102px; left: 119px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="python"><pre><code class="python">
+
+# Callback per quan es clica amb el ratolí
+def ratoliClic(pos):
+&nbsp; &nbsp; global jugant
+&nbsp; &nbsp; centre = [amplada / 2, altura / 2]
+&nbsp; &nbsp; mida = inici_info.get_mida()
+&nbsp; &nbsp; dinsMida_amplada = (centre[0] - mida[0] / 2) &lt; pos[0] &lt; (centre[0] + mida[0] / 2)
+&nbsp; &nbsp; dinsMida_altura = (centre[1] - mida[1] / 2) &lt; pos[1] &lt; (centre[1] + mida[1] / 2)<br>&nbsp; &nbsp; if (not jugant) and dinsMida_amplada and dinsMida_altura:
+&nbsp; &nbsp; &nbsp; &nbsp; musica.play()
+&nbsp; &nbsp; &nbsp; &nbsp; jugant = True
+
+
+# Afegeix un asteroide al joc
+def afegeixAsteroide():
+&nbsp; &nbsp; global roques, vides, punts
+&nbsp; &nbsp; if jugant == False:
+&nbsp; &nbsp; &nbsp; &nbsp; vides = 3
+&nbsp; &nbsp; &nbsp; &nbsp; punts = 0
+&nbsp; &nbsp; &nbsp; &nbsp; for roca in roques.copy():
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; roques.remove(roca)
+
+&nbsp; &nbsp; if jugant == True:
+&nbsp; &nbsp; &nbsp; &nbsp; if len(roques) &lt; 12:
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; while True:
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pos = [random.randrange(0, amplada), random.randrange(0, altura)]
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if dist(nau.pos, pos) &gt; 150:
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; vel = [random.randrange(-4,4) , random.randrange(-4,4)]
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; velAng = (random.choice([-1,1])*random.choice([0.05,0.1]))
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; roques.add(Sprite(pos, vel, 0, velAng , asteroide_imatge, asteroide_info))
+                                        </code></pre></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 166px; left: 185px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-29 bg-custom-b7bdbd " data-x="20998.826666666668" data-y="17111.04" data-scale="3" id="step-30" style="position: absolute; transform: translate(-50%, -50%) translate3d(20998.8px, 17111px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-29" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 10px; left: 357px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Definir les classes</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 128px; left: 274px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="python">class InfoImatge:<br>&nbsp; &nbsp; def __init__(self, centre, mida, radi = 0, durada = None, animat = False):<br>&nbsp; &nbsp; &nbsp; &nbsp; self.centre = centre<br>&nbsp; &nbsp; &nbsp; &nbsp; self.mida = mida<br>&nbsp; &nbsp; &nbsp; &nbsp; self.radi = radi<br>&nbsp; &nbsp; &nbsp; &nbsp; if durada:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self.durada = durada<br>&nbsp; &nbsp; &nbsp; &nbsp; else:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self.durada = float('inf')<br>&nbsp; &nbsp; &nbsp; &nbsp; self.animat = animat<br><br>&nbsp; &nbsp; def get_centre(self):<br>&nbsp; &nbsp; &nbsp; &nbsp; return self.centre<br><br>&nbsp; &nbsp; def get_mida(self):<br>&nbsp; &nbsp; &nbsp; &nbsp; return self.mida<br><br>&nbsp; &nbsp; def get_radi(self):<br>&nbsp; &nbsp; &nbsp; &nbsp; return self.radi<br><br>&nbsp; &nbsp; def get_durada(self):<br>&nbsp; &nbsp; &nbsp; &nbsp; return self.durada<br><br>&nbsp; &nbsp; def get_animat(self):<br>&nbsp; &nbsp; &nbsp; &nbsp; return self.animat
+                                        </code></pre></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 304px; left: 23px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="line-height: normal;"><font face="Droid Sans Mono, monospace">InfoImatge</font></span></li>
+                                            <li><span style="line-height: normal;"><font face="Droid Sans Mono, monospace">Sprite</font></span></li>
+                                            <li><span style="line-height: normal;"><font face="Droid Sans Mono, monospace">NauEspacial</font></span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-30 bg-custom-b7bdbd " data-x="20998.826666666668" data-y="19860.48" data-scale="3" id="step-31" style="position: absolute; transform: translate(-50%, -50%) translate3d(20998.8px, 19860.5px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-30" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 10px; left: 371px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Inicialitzar el joc</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 99px; left: 160px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="python">
+# Inicialitza la llibreria PyGame
+canvas = pygame.display.set_mode((amplada, altura))<br>pygame.display.set_caption("asteroides")<br>pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=4096)<br>pygame.init()<br>
+# Carrega les imatges
+pedres_info = InfoImatge([320, 240], [640, 480])<br>pedres_imatge = carregar_imatge("assets/pedres.png")<br><br>nebulosa_info = InfoImatge([400, 300], [800, 600])<br>nebulosa_imatge = carregar_imatge("assets/nebulosa.png") [...]<br>
+# Carrega els sons
+musica = carregar_so("assets/musica.ogg")<br>musica.stop()<br><br>bala_sound = carregar_so("assets/bala.ogg")<br>bala_sound.set_volume(.5) [...]<br>
+#Crea la nau espacial
+nau = nauEspacial([amplada / 2, altura / 2], [0,0], 0, nau_imatge, nau_info)<br>
+# Crea els conjunts(sets) de roques, bales i explosions
+roques = set()<br>bales = set()<br>explosions = set()
+                                        </code></pre></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-31 bg-custom-b7bdbd " data-x="21026.133333333335" data-y="22917.12" data-scale="3" id="step-32" style="position: absolute; transform: translate(-50%, -50%) translate3d(21026.1px, 22917.1px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-31" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 10px; left: 385px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Bucle principal</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 147px; left: 382px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="python">treballant = True<br>while treballant:<br>&nbsp; &nbsp; for event in pygame.event.get():<br>&nbsp; &nbsp; &nbsp; &nbsp; if event.type == pygame.QUIT: # window GUI ('x' the window)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; treballant = False<br>&nbsp; &nbsp; &nbsp; &nbsp; elif event.type == pygame.MOUSEBUTTONDOWN:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ratoliClic(pygame.mouse.get_pos())<br>&nbsp; &nbsp; &nbsp; &nbsp; elif event.type == pygame.KEYDOWN:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; teclaAvall(event.key)<br>&nbsp; &nbsp; &nbsp; &nbsp; elif event.type == pygame.KEYUP:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; teclaAmunt(event.key)<br>&nbsp; &nbsp; &nbsp; &nbsp; elif event.type == temporitzador_asteroide:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; afegeixAsteroide()<br>
+&nbsp; &nbsp; # Actualitza el joc i el mostra
+&nbsp; &nbsp; dibuixa(canvas)<br>&nbsp; &nbsp; pygame.display.update()<br>
+&nbsp; &nbsp; # Temporitzador per mostrar el joc a 60FPS
+&nbsp; &nbsp; clock.tick(60)<br>
+# Surt del joc
+pygame.quit ()
+                                        </code></pre></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 336px; left: 24px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 22px;" class="antialias">
+                                        <ul>
+                                            <li><font face="Droid Sans Mono, monospace"><span style="line-height: normal;">Limitar FPS a 60</span><br></font></li>
+                                            <li><span style="line-height: normal;"><font face="Droid Sans Mono, monospace">Actualitzar&nbsp;</font></span><span style="font-family: &#39;Droid Sans Mono&#39;, monospace; line-height: normal;">elements</span></li>
+                                        </ul>
+                                        <div>
+                                            <ul>
+                                                <li><font face="Droid Sans Mono, monospace"><span style="line-height: normal;">Revisar esdeveni</span><span style="line-height: normal;">ments</span></font></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-32 bg-custom-b7bdbd " data-x="29818.88" data-y="8248.32" data-scale="3" id="step-33" style="position: absolute; transform: translate(-50%, -50%) translate3d(29818.9px, 8248.32px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-32" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 362px; left: 44px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="PressStart2P, cursive">"ASTEROIDS" AMB JAVASCRIPT</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-33 bg-custom-b7bdbd " data-x="29818.88" data-y="10936.32" data-scale="3" id="step-34" style="position: absolute; transform: translate(-50%, -50%) translate3d(29818.9px, 10936.3px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-33" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 14px; left: 12px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <img src="./presentacio_files/javascript.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 24px; left: 234px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu, sans-serif">Per què adaptar-ho a JavaScript?</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 110px; left: 234px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="line-height: normal;">Utilitzar el joc en un lloc web</span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 190.9px; left: 410px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 175px; height: 119.19px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.69, 0.69);-moz-transform: scale(0.69, 0.69);transform: scale(0.69, 0.69)">
+                                    <img src="./presentacio_files/JMSzaBs.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 257px; left: 588px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu">Controlador per a&nbsp;interfícies&nbsp;tàctils</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 277px; left: 858px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 153px; height: 153px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.77, 0.77);-moz-transform: scale(0.77, 0.77);transform: scale(0.77, 0.77)">
+                                    <img src="./presentacio_files/3117-200.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 151px; left: 234px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="font-family: Ubuntu; line-height: normal;">Compatibilitat entre dispositius</span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 167px; left: 263px; -webkit-transform: rotate(2.04rad)  ; -moz-transform: rotate(2.04rad)  ; transform: rotate(2.04rad)  ; width: 175px; height: 119.19px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.69, 0.69);-moz-transform: scale(0.69, 0.69);transform: scale(0.69, 0.69)">
+                                    <img src="./presentacio_files/JMSzaBs.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 294px; left: 185px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu, sans-serif">Control amb teclat</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 279px; left: 52px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 147px; height: 147px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.29, 0.29);-moz-transform: scale(0.29, 0.29);transform: scale(0.29, 0.29)">
+                                    <img src="./presentacio_files/computer-hardware-keyboard-icon.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 422px; left: 234px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="font-family: Ubuntu; line-height: normal;">Compatibilitat entre SSO</span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 472px; left: 436px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 175px; height: 119.19px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.69, 0.69);-moz-transform: scale(0.69, 0.69);transform: scale(0.69, 0.69)">
+                                    <img src="./presentacio_files/JMSzaBs.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 417px; left: 456px; -webkit-transform: rotate(-0.71rad)  ; -moz-transform: rotate(-0.71rad)  ; transform: rotate(-0.71rad)  ; width: 175px; height: 119.19px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.69, 0.69);-moz-transform: scale(0.69, 0.69);transform: scale(0.69, 0.69)">
+                                    <img src="./presentacio_files/JMSzaBs.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 547px; left: 615px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu">Android, IOS, Windows Phone</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 428px; left: 634px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu">Linux, Window, OSX</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 615px; left: 234px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="font-family: Ubuntu; line-height: normal;">Compatibilitat entre navegadors</span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 719px; left: 560px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu">Firefox, Chrome , Safari&nbsp;</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 648px; left: 379px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 175px; height: 119.19px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.69, 0.69);-moz-transform: scale(0.69, 0.69);transform: scale(0.69, 0.69)">
+                                    <img src="./presentacio_files/JMSzaBs.png">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-34 bg-custom-b7bdbd " data-x="34379.09333333333" data-y="10936.32" data-rotate-y="-89.95437383553926" data-scale="3" id="step-35" style="position: absolute; transform: translate(-50%, -50%) translate3d(34379.1px, 10936.3px, 0px) rotateX(0deg) rotateY(-89.9544deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-34" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer " style="top: 9px; left: 17px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu">Que ens fa falta?</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 87px; left: 119px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="font-family: Ubuntu; line-height: normal;">Un servidor web on poder&nbsp;</span>
+                                                <br>
+                                            </li>
+                                        </ul><font face="Ubuntu">ficar el programa&nbsp;</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 160px; left: 273px; -webkit-transform: rotate(0.51rad)  ; -moz-transform: rotate(0.51rad)  ; transform: rotate(0.51rad)  ; width: 287px; height: 98.35px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.62, 0.62);-moz-transform: scale(0.62, 0.62);transform: scale(0.62, 0.62)">
+                                    <img src="./presentacio_files/black_arrow_png_by_mjmoonwalkerfan-d5ddhxk.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 627px; left: 119px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="font-family: Ubuntu; line-height: normal;">Una pàgina web on poder</span>
+                                                <br>
+                                            </li>
+                                        </ul>mostrar el contingut
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 222px; left: 547px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu">Llogar VPS (amb Ubuntu)<br></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 276px; left: 525px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu">Instal·lar servidor APACHE<br></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 202px; left: 830px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 99px; height: 99px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.49, 0.49);-moz-transform: scale(0.49, 0.49);transform: scale(0.49, 0.49)">
+                                    <img src="./presentacio_files/14182-200.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 490px; left: 119px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <ul>
+                                            <li><span style="font-family: Ubuntu; line-height: normal;">Crear dominis i subdominis asociats a l'adreça IP del servidor</span>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 512px; left: 695px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 117px; height: 117px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.23, 0.23);-moz-transform: scale(0.23, 0.23);transform: scale(0.23, 0.23)">
+                                    <img src="./presentacio_files/Webpage-icon.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 329px; left: 518px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Ubuntu">Pujar els arxius del joc<br></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-35 bg-custom-b7bdbd " data-x="29859.84" data-y="13885.44" data-scale="3" id="step-36" style="position: absolute; transform: translate(-50%, -50%) translate3d(29859.8px, 13885.4px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-35" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 320px; left: 98px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="PressStart2P, cursive">ESQUEMA DEL "ASTEROIDS"</font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 415px; left: 381px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="PressStart2P, cursive">JAVASCRIPT</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-36 bg-custom-b7bdbd " data-x="29873.493333333332" data-y="16727.04" data-scale="3" id="step-37" style="position: absolute; transform: translate(-50%, -50%) translate3d(29873.5px, 16727px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-36" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 10px; left: 207px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Importar les llibreries i el programa</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 156px; left: 380px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="html">
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&nbsp; &nbsp; &lt;meta charset="UTF-8" /&gt;
+&nbsp; &nbsp; &lt;meta name="viewport" content="width=device-width, <br>&nbsp; &nbsp; initial-scale=1, user-scalable=no, minimal-ui"&gt;
+&nbsp; &nbsp; &lt;title&gt;Asteroids&lt;/title&gt;
+&nbsp; &nbsp; &lt;script src="js/phaser.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&nbsp; &nbsp; &lt;script src="js/asteroids.js" type="text/javascript"&gt;&lt;/script&gt;
+&nbsp; &nbsp; &lt;style&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; body{
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin: 0px;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin-top: 0px;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin-right: 0px;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin-bottom: 0px;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin-left: 0px;
+&nbsp; &nbsp; &nbsp; &nbsp; }
+&nbsp; &nbsp; &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                                        </code></pre></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 328px; left: 30px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 22px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace">Importar al document<br>HTML les llibreries i el <br>codi&nbsp;del joc<br></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-37 bg-custom-b7bdbd " data-x="29859.84" data-y="19614.72" data-scale="3" id="step-38" style="position: absolute; transform: translate(-50%, -50%) translate3d(29859.8px, 19614.7px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-37" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 10px; left: 303px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Definir variables globals</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 118px; left: 300px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="javascript">
+// Elements gràfics
+var nau,<br>&nbsp; &nbsp; asteroides,<br>&nbsp; &nbsp; explosions,<br>&nbsp; &nbsp; bales,<br>&nbsp; &nbsp; fonsNebulosa, fonsPedres;<br>
+// Sons del joc
+var musica_sound,<br>&nbsp; &nbsp; accelera_sound,<br>&nbsp; &nbsp; explota_sound;<br>
+// Temps fins mostrar un altre element gràfic
+var seguentBala = 0,<br>&nbsp; &nbsp; seguentAsteroide = 0;<br>
+// Informació del joc
+var puntsString = 'Punts: ',<br>&nbsp; &nbsp; videsString = 'Vides: ',<br>&nbsp; &nbsp; textPunts,<br>&nbsp; &nbsp; textVides,<br>&nbsp; &nbsp; textEstat,<br>&nbsp; &nbsp; punts = 0,<br>&nbsp; &nbsp; vides,<br>&nbsp; &nbsp; jugant = false;
+                                        </code></pre></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-38 bg-custom-b7bdbd " data-x="29887.146666666667" data-y="22579.2" data-scale="3" id="step-39" style="position: absolute; transform: translate(-50%, -50%) translate3d(29887.1px, 22579.2px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-38" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 10px; left: 153px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Crear el joc a partir de la llibreria PHASER</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 218px; left: 346px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="javascript"><br>var game = new Phaser.Game(w, h, Phaser.CANVAS, '',<br>&nbsp; &nbsp; {init: init, preload: preload, create: create, update: update});<br>/*<br>&nbsp;* Inicialitza la mida del joc per tal que s'adapti als canvis de mida<br>&nbsp;* entre els diferents dispositius: mòbils, tablets, PC...<br>&nbsp;*/<br>&gt;function init(){...<br><br>/*<br>&nbsp;* Abans de començar carrega tots els elements necessàris<br>&nbsp;*/<br>&gt;function preload(){...<br><br>/*<br>&nbsp;* Un cop els elements elements gràfics i els sons, els afegeix al joc<br>&nbsp;*/<br>&gt;function create(){...<br><br>/*<br>&nbsp;* Dibuixa cada frame del joc.<br>&nbsp;* Controla la posició de tots els elements i els dibuixa.<br>&nbsp;*/<br>&gt;function update(){...
+                                        </code></pre></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 111px; left: 28px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Droid Sans Mono">La llibreria PHASER permet<br>crear un joc a partir de&nbsp;<br>quatre funcions:<br></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 240px; left: 93px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 24px;" class="antialias">
+                                        <font face="Droid Sans Mono"><ul><li><span style="line-height: normal;">Init&nbsp;</span><br></li><li><span style="line-height: normal;">Preload&nbsp;</span><br></li><li><span style="line-height: normal;">Create&nbsp;</span><br></li><li><span style="line-height: normal;">Update</span><br></li></ul></font><font face="Droid Sans Mono"></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-39 bg-custom-b7bdbd " data-x="29928.106666666667" data-y="25605.12" data-scale="3" id="step-40" style="position: absolute; transform: translate(-50%, -50%) translate3d(29928.1px, 25605.1px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-39" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombra" style="top: 3px; left: 268px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 36px;" class="antialias">
+                                        <font face="Ubuntu"><b>Definir les funcions auxiliars</b></font>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer quadre codi" style="top: 109px; left: 66px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 15px;" class="antialias">
+                                        <font face="Droid Sans Mono, monospace"><pre><code class="javascript">/*<br>&nbsp;* Callback per quan es prem la pantalla en un dispositiu tàctil<br>&nbsp;*/<br>function touchDown(punter) {<br>&nbsp; &nbsp; if (jugant &amp;&amp; (punter.pointerMode == 3 || punter.punterMode == Phaser.PointerMode.CONTACT)) {<br>&nbsp; &nbsp; &nbsp; &nbsp; if (punter.positionDown.x &lt; game.world.centerX &amp;&amp; !touchEsquerra) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; touchEsquerra = punter;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; touchEsquerraPosInicial.copyFrom(punter.positionDown);<br>&nbsp; &nbsp; &nbsp; &nbsp; } else if (punter.positionDown.x &gt; game.world.centerY &amp;&amp; !touchDreta) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; touchDreta = punter;<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; }<br>}<br><br>/*<br>&nbsp;* Callback per quan es deixa de prèmer la pantalla en un dispositiu tàctil<br>&nbsp;*/<br>function touchUp(punter) {<br>&nbsp; &nbsp; if (jugant &amp;&amp; (punter.pointerMode == 3 || punter.punterMode == Phaser.PointerMode.CONTACT)) {<br>&nbsp; &nbsp; &nbsp; &nbsp; if (touchEsquerra &amp;&amp; punter.id == touchEsquerra.id) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; touchEsquerra = null;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; touchEsquerraPosInicial.setTo(0, 0);<br>&nbsp; &nbsp; &nbsp; &nbsp; } else if (touchDreta &amp;&amp; punter.id == touchDreta.id) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; touchDreta = null;<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; }<br>}
+                                        </code></pre></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step future" data-state="strut-slide-40 bg-custom-b7bdbd " data-x="9256.96" data-y="18447.36" data-rotate-y="89.95437383553926" data-scale="3" id="step-41" style="position: absolute; transform: translate(-50%, -50%) translate3d(9256.96px, 18447.4px, 0px) rotateX(0deg) rotateY(89.9544deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;">
+                        <div class=" slideContainer strut-slide-40" style="width: 1024px; height: 768px;">
+                            <div class="themedArea">
+
+                            </div>
+
+                            <div class="componentContainer titolSombraGeneral" style="top: 355px; left: 248px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(1, 1);-moz-transform: scale(1, 1);transform: scale(1, 1)">
+                                    <div style="font-size: 48px;" class="antialias">
+                                        <font face="PressStart2P">CONCLUSIONS</font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 502px; left: 84px; -webkit-transform: rotate(-0.66rad)  ; -moz-transform: rotate(-0.66rad)  ; transform: rotate(-0.66rad)  ; width: 237px; height: 136.81px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.25, 0.25);-moz-transform: scale(0.25, 0.25);transform: scale(0.25, 0.25)">
+                                    <img src="./presentacio_files/Td0BFEB.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 106px; left: 651px; -webkit-transform: rotate(2.31rad)  ; -moz-transform: rotate(2.31rad)  ; transform: rotate(2.31rad)  ; width: 237px; height: 136.81px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.25, 0.25);-moz-transform: scale(0.25, 0.25);transform: scale(0.25, 0.25)">
+                                    <img src="./presentacio_files/Td0BFEB.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 104px; left: 132px; -webkit-transform: rotate(0.95rad)  ; -moz-transform: rotate(0.95rad)  ; transform: rotate(0.95rad)  ; width: 237px; height: 136.81px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.25, 0.25);-moz-transform: scale(0.25, 0.25);transform: scale(0.25, 0.25)">
+                                    <img src="./presentacio_files/Td0BFEB.png">
+                                </div>
+                            </div>
+
+                            <div class="componentContainer " style="top: 504px; left: 652px; -webkit-transform: rotate(-2.14rad)  ; -moz-transform: rotate(-2.14rad)  ; transform: rotate(-2.14rad)  ; width: 237px; height: 136.81px;">
+                                <div class="transformContainer" style="-webkit-transform: scale(0.25, 0.25);-moz-transform: scale(0.25, 0.25);transform: scale(0.25, 0.25)">
+                                    <img src="./presentacio_files/Td0BFEB.png">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="overview" class="step future" data-state="strut-slide-overview" data-x="18022.4" data-y="12280.32" data-scale="9" style="position: absolute; transform: translate(-50%, -50%) translate3d(18022.4px, 12280.3px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(9); transform-style: preserve-3d;"></div>
+
+                </div>
+            </div>
+            <div class="hint">
+                <p>Fes servir l'espai o les fletxes del cursor per navegar</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
